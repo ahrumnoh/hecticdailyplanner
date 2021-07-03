@@ -7,18 +7,28 @@ const workTask = document.getElementById('work');
 const deselectBtn = document.getElementById('deselect');
 const taskContainer = document.querySelector('.task__container');
 const scheduleContainer = document.querySelector('.schedule__container');
+const resetBtn = document.querySelector('.deleteBtn');
+const popUp = document.querySelector('.pop-up__container');
+const noBtn = document.getElementById('btn__no');
+const yesBtn = document.getElementById('btn__yes');
+
+
 
 let selectedColor, active;
 
 //Event Listeners
 taskContainer.addEventListener('click',selectTask);
 scheduleContainer.addEventListener('click', setColors);
+deselectBtn.addEventListener('click', resetTasks);
+resetBtn.addEventListener('click', openPopup);
+noBtn.addEventListener('click', closePopup);
+yesBtn.addEventListener('click',deleteTasks);
 
 
 
 //Task click
-function selecTask(e){
-    resetTasks();
+function selectTask(e){
+    resetTasks()
 
     taskColor = e.target.style.backgroundColor;
 
@@ -81,4 +91,29 @@ function resetTasks(){
     allTasks.forEach((item)=>{
         item.className = 'task__name';
     })
+}
+
+
+//delete tasks
+function deleteTasks(){
+    const tasks = document.querySelectorAll('.task');
+
+    tasks.forEach((item) =>{
+        item.innerHTML = '';
+        item.style.backgroundColor = 'white';
+    })
+
+    closePopup();
+}
+
+//Open pop-up
+function openPopup(){
+    popUp.style.display = 'flex';
+  
+}
+
+
+//Close pop-up
+function closePopup(){
+    popUp.style.display = 'none';
 }
