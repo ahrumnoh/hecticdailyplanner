@@ -1,3 +1,7 @@
+var d = new Date();
+
+
+
 var formEl = $('#skills-form');
 var nameInputEl = $('#skill-name');
 var dateInputEl = $('#datepicker');
@@ -204,3 +208,10 @@ function openPopup(){
 function closePopup(){
     popUp.style.display = 'none';
 }
+
+
+
+//Local Time & Date
+var d = new Date();
+document.getElementById('currentTime').innerHTML = d.toLocaleString();
+

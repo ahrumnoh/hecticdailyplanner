@@ -6,12 +6,15 @@
     padding:0;
 }
 
+.currentTime {
+    color: hotpink;
+}
 
 body {
     font-family: 'Suez One', serif;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1;
-    background-color: cadetblue;
+    background-color: rgb(137, 216, 216);
 }
   
 
@@ -21,6 +24,7 @@ body {
     color:black;
     border-radius: 0;
     border-bottom: 10px solid black;
+    font-size: 15px;
 }
   
 .jumbotron .display-3 {
@@ -29,7 +33,7 @@ body {
 }
 .jumbotron .lead {
     text-align: center;
-    color:darkslategray;
+    color:purple;
     background-color: cadetblue;
     font-size: 30px;
     font-family:Georgia, 'Times New Roman', Times, serif;
@@ -50,14 +54,10 @@ body {
     font-size: 15px;
 }
 
-h1,h3{
+h1{
     margin-bottom: 20px;
 }
 
-.h3 {
-    padding-left: 5px;
-    color: #ff6961;
-}
 
 /*Task Container */
 
@@ -108,12 +108,11 @@ h1,h3{
 
 .day{
     width: 100px;
-    color: grey;
+    color: darkslategrey;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2px;
-    padding-left: 100px;
 }
 
 .part__day {
@@ -124,7 +123,7 @@ h1,h3{
     width: 50px;
     height: 70px;
     color: white;
-    background-color: darkslategray;
+    background-color: rgb(248, 144, 8);
     text-align: center;
     display:flex;
     justify-content: center;
@@ -157,7 +156,7 @@ h1,h3{
 }
 
 .deleteBtn:hover{
-    background-color: #ff6961;
+    background-color: orange;
 }
 
 /*pop up*/
@@ -166,12 +165,14 @@ h1,h3{
     top:0;
     left:0;
     z-index: 99;
-    height: 100%;
+    height: 200%;
     width:100%;
-    background-color:black;
+    color:orange;
+    background-color:grey;
     display:none;
     justify-content: center;
     align-items: center;
+    border-style: solid;
 }
 
 .pop-up{
@@ -181,23 +182,21 @@ h1,h3{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: #00b4d8;
+    background-color:beige;
     padding: 15px;
     text-align: center;
     border-radius: 5px;
 }
-h4 {
-    font-size: 15px;
-}
+
 .btn__container{
-    display: flex;
+    display:inline-flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .btn__answer{
     margin: 0 20px;
-    background-color: brown;
+    background-color:palevioletred;
     padding: 10px;
     border-radius: 5px;
     cursor:pointer;

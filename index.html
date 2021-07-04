@@ -30,12 +30,15 @@
     <link rel="stylesheet" href="./CSS/style.css"/>
 
     <title> Day Scheduler</title>
+  
   </head>
 
   <body>
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
+      <h2 id = "currentTime"></h2>
       <p class="lead">Let's make your day 'dream come true'</p>
+    
 
       <br>
 
@@ -66,7 +69,7 @@
       </div>    
       
       <div class="col-6">
-        <h3>Lists</h3>
+        <p style="color: blueviolet">Lists</p>
         <br />
         <ul class="list-group" id="skills-list"></ul>
       </div>
@@ -93,7 +96,7 @@
         </div>
 
 
-        <h3>2. Add selected task-icons to the schedule Sheet</h3>
+        <h2>2. Add selected task-icons to the schedule Sheet</h3>
 
         <div class="schedule__container">
             <div class ="days__container">
@@ -183,5 +186,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./JS/index.js"></script>
+    
   </body>
+  
 </html>
