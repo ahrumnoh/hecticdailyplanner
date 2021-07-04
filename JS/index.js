@@ -1,3 +1,82 @@
+var formEl = $('#skills-form');
+var nameInputEl = $('#skill-name');
+var dateInputEl = $('#datepicker');
+var skillsListEl = $('#skills-list');
+
+
+//form function
+var printSkills = function (name, date) {
+    var listEl = $('<li>');
+    var listDetail = name.concat(' on ', date);
+    listEl.addClass('list-group-item').text(listDetail);
+    listEl.appendTo(skillsListEl);
+  };
+  
+  var handleFormSubmit = function (event) {
+    event.preventDefault();
+  
+    var nameInput = nameInputEl.val();
+    var dateInput = dateInputEl.val();
+  
+    if (!nameInput || !dateInput) {
+      console.log('You need to fill out the form!');
+      return;
+    }
+  
+    printSkills(nameInput, dateInput);
+  
+    nameInputEl.val('');
+    dateInputEl.val('');
+
+ };
+  
+formEl.on('submit', handleFormSubmit);
+
+// form lists removing fuctions
+
+function handleFormSubmit(event){
+    event.preventDefault();
+
+    var daylistItem = $('input[name="skill-name"]').val();
+    
+    if(!daylistItem) {
+        console.log('No daylists item filled out in form!');
+        return;
+    }
+
+    var daylistListItemEl = $(
+        '<li class="flex-row justify-space-between align-center p-2 bg-light text-dark">'
+    );
+    daylistListItemEl.text(daylistItem); //checked
+
+    //add delete button to remove daylistss items
+    daylistListItemEl.append(
+        '<button class="btn btn-danger btn-small delete-item-btn">Remove</button>'
+    );
+
+
+
+
+    //print the form input element
+    skillsListEl.append(daylistListItemEl)
+    $('input[name="skill-name"]').val('');
+
+    //Create a function to handle removing a list item when '.delete btn' clicked
+
+    function handleRemoveItem(event) {
+        var btnClicked = $(event.target);
+        btnClicked.parent('li').remove();
+    }
+
+    nameInputEl.on('click','.delete-item-btn', handleRemoveItem);
+    skillsListEl.on('submit', handleFormSubmit);
+}
+
+
+
+
+
+
 const breakTask = document.getElementById('break');
 const gymTask = document.getElementById('gym');
 const studyTask = document.getElementById('study');
@@ -25,6 +104,14 @@ noBtn.addEventListener('click', closePopup);
 yesBtn.addEventListener('click',deleteTasks);
 
 
+
+// Datepicker widget
+$(function () {
+  $('#datepicker').datepicker({
+    changeMonth: true,
+    changeYear: true,
+  });
+});
 
 //Task click
 function selectTask(e){
