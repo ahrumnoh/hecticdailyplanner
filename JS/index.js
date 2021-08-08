@@ -1,7 +1,6 @@
 var d = new Date();
 
 
-
 var formEl = $('#skills-form');
 var nameInputEl = $('#skill-name');
 var dateInputEl = $('#datepicker');

@@ -1,192 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="./CSS/style.css"/>
-
-    <title> Day Scheduler</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
   
-  </head>
+  <title>Daily Planner</title>
+</head>
 
-  <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <h2 id = "currentTime"></h2>
-      <p class="lead">Let's make your day 'dream come true'</p>
-    
+<body>
+  <header class="jumbotron">
+    <h1 class="display-3">Daily Planner</h1>
+    <p class="lead">for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
 
-      <br>
-
-      <div class="form-group row">
-
-        <form id="skills-form">
-          <div class="form-group row">
-            <label for="doLists" class="col-sm-4 col-form-label">
-              Plans:
-            </label>
-
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="skill-name" name="skill-name" placeholder="Enter what to do"/>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="date" class="col-sm-4 col-form-label">Date: </label>
-            <div class="col-sm-8">
-              <input type="text" class="form-control" id="datepicker" autocomplete="off" placeholder="MM/DD/YYYY" />
-            </div>
-          </div>
-
-          <button type="submit" value="Submit" class="btn btn-info">
-            Submit
-          </button>
-        </form>
-      </div>    
-      
-      <div class="col-6">
-        <p style="color: blueviolet">Lists</p>
-        <br />
-        <ul class="list-group" id="skills-list"></ul>
+  <div class="container">
+    <!-- Timeblocks go here -->
+    <div class="row">
+      <div class="hour col">
+        9 AM
       </div>
-    </header>
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-    <div class="container">
-        <h1>1. Click the task-icons</h1>
-
-        <div class="task__container">
-           <div class="task__name" id="break" style="background-color: blueviolet;">Break</div>
-           <div class="task__name" id="gym" style="background-color: yellow;">Gym</div>
-           <div class="task__name" id="study" style="background-color: pink;">Study</div>
-           <div class="task__name" id="tv" style="background-color: orange;">Tv</div>
-           <div class="task__name" id="friends" style="background-color: red;">Friends</div>
-           <div class="task__name" id="work" style="background-color: grey;"> Work</div>
-           <div class="task__name" id="deselect" style="background-color: blue;">Deselect</div>
-        </div>
-
-
-        <h2>2. Add selected task-icons to the schedule Sheet</h3>
-
-        <div class="schedule__container">
-            <div class ="days__container">
-                <span class="corner"></span>
-                <div class="day">Sunday</div>
-                <div class="day">Monday</div>
-                <div class="day">Tuesday</div>
-                <div class="day">Wednesday</div>
-                <div class="day">Thursday</div>
-                <div class="day">Friday</div>
-                <div class="day">Saturday</div>
-            </div>
-            <div class="part__day">
-                <span class="time">8am <br> - <br> 12pm</span>
-                <div class="task"></div>
-                <div class="task"></div>
-                <div class="task"></div>
-                <div class="task"></div>
-                <div class="task"></div>
-                <div class="task"></div>
-                <div class="task"></div>
-            </div>
-
-            <div class="part__day">
-              <span class="time">12pm <br> - <br> 2pm</span>
-              <div class="task"></div>
-              <div class="task"></div>
-              <div class="task"></div>
-              <div class="task"></div>
-              <div class="task"></div>
-              <div class="task"></div>
-              <div class="task"></div>
-            </div>
-
-          <div class="part__day">
-            <span class="time">2pm <br> - <br> 6pm</span>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-          </div>
-
-          <div class="part__day">
-            <span class="time">6pm <br> - <br> 9pm</span>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-          </div>
-
-          <div class="part__day">
-            <span class="time">9pm <br> - <br> 11pm</span>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-            <div class="task"></div>
-          </div>
-        </div>
-
-        <button class="deleteBtn">Resent Schedule</button>
-
-        <div class="pop-up__container">
-          <div class="pop-up">
-            <h4>Are you sure you want to delete all the tasks from your schedule?</h4>
-
-
-            <div class="btn__container">
-              <div class="btn__answer" id="btn__yes">YES</div>
-              <div class="btn__answer" id="btn__no">NO</div>
-            </div>
-          </div>
-        </div>
-      <!-- Timeblocks go here -->
+      <textarea spellcheck="false" data-task-id='0' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="./JS/index.js"></script>
-    
-  </body>
-  
+    <div class="row">
+      <div class="hour col">
+        10 AM
+      </div>
+      <textarea spellcheck="false" data-task-id='1' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        11 AM
+    </div>
+      <textarea spellcheck="false" data-task-id='2' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        12 PM
+      </div>
+      <textarea spellcheck="false" data-task-id='3' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        1 PM
+      </div>
+      <textarea spellcheck="false" data-task-id='4' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        2 PM
+      </div>
+      <textarea spellcheck="false" data-task-id='5' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        3 PM
+      </div>
+      <textarea spellcheck="false" data-task-id='6' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        4 PM
+      </div>
+      <textarea spellcheck="false" data-task-id='7' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+      <div class="hour col">
+        5 PM
+      </div>
+      <textarea spellcheck="false" data-task-id='8' class="description col-7"></textarea>
+      <button class="saveBtn col fas fa-save"></button>
+      <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+
+    <div class="row">
+        <div class="hour col">
+        6 PM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+
+    <div class="row">
+        <div class="hour col">
+        7 PM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+
+    <div class="row">
+        <div class="hour col">
+        8 PM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+        <div class="hour col">
+        9 PM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+
+    <div class="row">
+        <div class="hour col">
+        10 PM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+
+    <div class="row">
+        <div class="hour col">
+        11 PM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+    <div class="row">
+        <div class="hour col">
+        12 AM
+        </div>
+        <textarea spellcheck="false" data-task-id='9' class="description col-7"></textarea>
+        <button class="saveBtn col fas fa-save"></button>
+        <p class='err-msg'>Changes unsaved</p>
+    </div>
+
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
