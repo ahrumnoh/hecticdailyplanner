@@ -11,9 +11,13 @@
 
 body {
     background-image: url("https://source.unsplash.com/2300x2300/?time");
+    font: white;
 }
 
 .lead {
     color:orange;
     font-weight: bolder;
+}
+.container .hour {
+    font:orange;
 }
