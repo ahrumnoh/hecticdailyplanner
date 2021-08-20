@@ -45,12 +45,12 @@ p#currentDay.lead {
 }
   
 .present {
-    background-color: #ff6961;
+    background-color: #398a1379;
     color: black;
 }
   
 .future {
-    background-color: #77dd77;
+    background-color: #630d1867;
     color: black;
 }
 
